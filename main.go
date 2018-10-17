@@ -61,6 +61,8 @@ func handle(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 	fmt.Fprintf(w, "Demo GCS Application running from Version: %v\n", appengine.VersionID(ctx))
 	fmt.Fprintf(w, "Using bucket name: %v\n\n", bucket)
+	fmt.Fprintln("Demo GCS Application running from Version: %v\n", appengine.VersionID(ctx))
+	fmt.Fprintln("Using bucket name: %v\n\n", bucket)
 
 	buf := &bytes.Buffer{}
 	d := &buckread{
@@ -157,10 +159,13 @@ func (d *buckread) readFile(fileName string) {
 	}
 
 	fmt.Fprintf(d.w, "%s\n", bytes.SplitN(slurp, []byte("\n"), 2)[0])
+	fmt.Fprintln("%s\n", bytes.SplitN(slurp, []byte("\n"), 2)[0])
 	if len(slurp) > 1024 {
 		fmt.Fprintf(d.w, "...%s\n", slurp[len(slurp)-1024:])
+		fmt.Fprintln("...%s\n", slurp[len(slurp)-1024:])
 	} else {
 		fmt.Fprintf(d.w, "%s\n", slurp)
+		fmt.Fprintln("%s\n", slurp)
 	}
 }
 
