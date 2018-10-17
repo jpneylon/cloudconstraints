@@ -33,7 +33,7 @@ func main() {
 }
 
 func handle(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Welcome to Cloud Constraints. >:( \n")
+	fmt.Fprintln(w, "Welcome to Cloud Constraints. >:(--|--{ \n")
 	
 	ctx := appengine.NewContext(r)
 
