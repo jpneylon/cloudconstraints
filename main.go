@@ -73,7 +73,7 @@ func handle(w http.ResponseWriter, r *http.Request) {
 		bucketName: bucket,
 	}
 
-	n := "TG101_Constraints.csv"
+	n := "data/TG101_Constraints.csv"
 	//d.createFile(n)
 	d.readFile(n)
 	//d.copyFile(n)
