@@ -33,7 +33,7 @@ func main() {
 }
 
 func handle(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Welcome to Cloud Constraints. >:( ")
+	fmt.Fprintln(w, "Welcome to Cloud Constraints. >:( \n")
 	
 	ctx := appengine.NewContext(r)
 
@@ -46,6 +46,7 @@ func handle(w http.ResponseWriter, r *http.Request) {
 	// Use `dev_appserver.py --default_gcs_bucket_name GCS_BUCKET_NAME`
 	// when running locally.
 	bucket, err := file.DefaultBucketName(ctx)
+	fmt.Fprintln(w, "Buckethead: %v \n",bucket)
 	if err != nil {
 		log.Errorf(ctx, "failed to get default GCS bucket name: %v", err)
 	}
