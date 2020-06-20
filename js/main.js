@@ -4,7 +4,7 @@ var app = new Vue({
   el: '#app',
   components: { vuejsDatepicker },
   data: {
-    message: 'Container for Wafers',
+    message: 'Container for ConClouds',
     patient: '',
     mrn: '',
     rxdose: '',
