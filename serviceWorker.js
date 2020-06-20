@@ -6,6 +6,7 @@ const FILES_TO_CACHE = [
   'css/main.css',
   'css/print.css',
   'data/cloud_done.png',
+  'data/cloud_done_512.png',
   'js/main.js',
 ];
 

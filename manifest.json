@@ -2,8 +2,8 @@
 	"name": "CloudConstraints",
 	"short_name": "ConCloud",
 	"icons": [{
-		"src": "data/cloud_done.png",
-		"sizes": "128x128",
+		"src": "data/cloud_done_512.png",
+		"sizes": "512x512",
 		"type": "image/png"
 	  }],
 	"start_url": "index.html",
