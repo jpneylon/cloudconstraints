@@ -5,14 +5,8 @@ const FILES_TO_CACHE = [
   'index.html',
   'css/main.css',
   'css/print.css',
-  'data/cohlogo.jpg',
-  'data/wafer-200.png',
+  'data/cloud_done.png',
   'js/main.js',
-  'js/utilities.js',
-  'js/waferDIODE.js',
-  'js/waferEDWF.js',
-  'js/waferIMRT.js',
-  'js/waferSPC.js',
 ];
 
 self.addEventListener('install', (evt) => {
