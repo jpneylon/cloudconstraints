@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport"/>
+        <title>WAFERS</title>
+        <script src="https://unpkg.com/vue"></script>
+        <script src="https://unpkg.com/vuejs-datepicker"></script>
+        <link rel="stylesheet" type="text/css" href="css/main.css"/>
+        <link rel="stylesheet" type="text/css" media="print" href="css/print.css"/>
+
+        <link rel="manifest" href="manifest.json">
+        <meta name="description" content="Cloud Constraints: Created by Jack Neylon, Phd, DABR (v0.2-2019.11.05)">
+        <meta name="theme-color" content="#2F3BA2"/>
+   </head>
+   <body>
+	<div id="app">
+        <div class="no-print">
+			<div>
+			 <div class="header-spacer"></div>
+			 <h1 class="header-h1" title="Quickly reference normal tissue constraints by site and fractionation">{{doctitle}}</h1>
+			 <button class="header-button" id="butInstall" aria-label="Install" hidden="false">Install</button>
+			 <!-- <button id="butRefresh" aria-label="Refresh"></button> -->
+			 </div>
+			<table>
+				<tr>
+					<td>Patient Name:</td>
+					<td><input v-model="patient" placeholder="Enter Patient Name"></td>
+				</tr>
+				<tr>
+					<td>Patient MRN:</td>
+					<td><input v-model="mrn" placeholder="Enter MRN"></td>
+				</tr>
+  
+				<tr>
+					<td>Request Date:</td>
+					<td><vuejs-datepicker name="update_rxdate" :value="rxdate" v-model="rxdate" format="d MMMM yyyy"></vuejs-datepicker></td>
+				</tr>
+				<tr>
+					<td>Action Date:</td>
+					<td><vuejs-datepicker name="update_txdate" :value="txdate" v-model="txdate" format="d MMMM yyyy"></vuejs-datepicker></td>
+				</tr>
+				<tr>
+				  <td>Physician</td>
+				  <td>
+					<select v-model="physician" placeholder="Select the Attending Physician">
+						<option disabled value="">Select the Attending Physician</option>
+						<option v-for="doc in docs" v-bind:value="doc">
+							{{ doc.lastname }}, {{ doc.firstname}}
+						</option>
+					</select>
+				  </td>
+				</tr>
+				<tr>
+				  <td>Physicist</td>
+				  <td>
+					<select v-model="physicist" placeholder="Select the Physicist">
+						<option disabled value="">Select the Physicist</option>
+						<option v-for="nerd in nerds" v-bind:value="nerd">
+							{{ nerd.lastname }}, {{ nerd.firstname }}
+						</option>
+					</select>
+				  </td>
+				</tr>
+			</table>
+			<p>&nbsp;</p>
+		  </div>
+	</div>
+
+	<script src="js/main.js"></script>
+
+	<script src="js/install.js"></script>
+	<script>
+	  if ('serviceWorker' in navigator) {
+	  window.addEventListener('load', () => {
+		navigator.serviceWorker.register('serviceWorker.js')
+			.then((reg) => {
+			  console.log('Service worker registered.', reg);
+			});
+	  });
+	}
+	</script>
+   </body>
+</html>
